@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+import '../styles/App.css';
 import { Card } from './Card';
 
 function App() {
@@ -34,7 +34,7 @@ function App() {
 
   return (
     <>
-      <div className='flex justify-center items-center h-screen bg-slate-50 font-sans'>
+      <div className='flex justify-center items-center h-screen bg-slate-500 font-sans'>
         <Card
           currentCardData={tutorialData[step]}
           nextStep={nextStep}
