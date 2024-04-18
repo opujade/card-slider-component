@@ -7,11 +7,11 @@ export default {
         time: '#4da2a9',
         programming: '#d3d4d9',
         meditation: '#ffd167'
+      },
+      fontFamily: {
+        'roboto': ['Roboto', 'Helvetica', 'Arial', 'sans-serif']
       }
     },
-    fontFamily: {
-      'roboto': ['Roboto', 'Helvetica', 'Arial', 'sans-serif']
-    }
   },
   plugins: [],
 };

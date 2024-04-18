@@ -1,21 +1,21 @@
 import React from 'react';
+import { Indicator } from './Indicator';
 
-const Button = ({ chooseStep, value, disabled, btnInfo }) => {
+const Button = ({ btnInfo }) => {
   return (
     <button
       className={
-        'transition border-solid border-gray-500 font-bold border py-3 m-1 px-5 rounded-full ' +
+        'transition border-solid font-mono border-gray-500 font-bold border py-3 m-1 px-5 rounded-full opacity-70 hover:opacity-100 hover:scale-105 duration-200 ' +
         btnInfo.bg +
         ' ' +
         btnInfo.color +
         ' ' +
         btnInfo.hover
       }
-      onClick={chooseStep}
+      onClick={btnInfo.stepFunc}
       type="button"
-      disabled={disabled}
     >
-      {value}
+      {btnInfo.value}
     </button>
   );
 };
@@ -23,71 +23,57 @@ const Button = ({ chooseStep, value, disabled, btnInfo }) => {
 export const Card = ({
   children,
   currentCardData,
-  nextStep,
-  prevStep,
-  ...props
+  stepFuncs,
+  step,
+  tutorialData,
 }) => {
   let btnInfo = [
     {
-      disabled: false,
       bg: 'bg-white',
       color: 'text-black',
-      hover: 'hover:bg-black hover:text-white',
+      value: '<',
+      stepFunc: stepFuncs.prevStep,
     },
     {
-      disabled: false,
       bg: 'bg-black',
       color: 'text-white',
-      hover: 'hover:bg-white hover:text-black',
+      value: '>',
+      stepFunc: stepFuncs.nextStep,
     },
   ];
 
-  if (currentCardData.page === 1) {
-    btnInfo[0] = {
-      disabled: true,
-      bg: 'bg-gray-300 border-gray-300',
-      color: 'text-black',
-    };
-  }
-  if (currentCardData.page === 3) {
-    btnInfo[1] = {
-      disabled: true,
-      bg: 'bg-gray-300 border-gray-300',
-      color: 'text-black',
-    };
-  }
-
   return (
     <>
-      <div className="max-w-sm bg-white rounded-3xl overflow-hidden h-5/6 relative">
+      <div className="max-w-sm rounded-3xl overflow-hidden h-5/6 relative shadow-lg">
         <div
-          className={
-            'transition h-3/5 bg-' +
-            currentCardData.bgColor +
-            ' m-0 flex items-center justify-center'
-          }
+          style={{backgroundImage: `url(${currentCardData.image})`}}
+          className={`w-full h-3/5 bg-${currentCardData.bgColor} bg-contain bg-no-repeat bg-center`}
         >
-          <img
-            className="transition p-5"
-            src={currentCardData.image}
-            alt={'Imatge de "' + currentCardData.title + '"'}
-          ></img>
         </div>
-        <div>{children}</div>
-        <div className="pt-5 absolute end-0 bottom-0 my-6 me-3">
-          <Button
-            chooseStep={prevStep}
-            value={'<'}
-            btnInfo={btnInfo[0]}
-            disabled={btnInfo[0].disabled}
-          ></Button>
+        <div className="h-2/5">
+          <div className="h-2/3">{children}</div>
 
-          <Button
-            chooseStep={nextStep}
-            value={'>'}
-            btnInfo={btnInfo[1]}
-            disabled={btnInfo[1].disabled}
-          ></Button>
+          <div className="h-1/3 relative">
+            <div className="absolute flex items-center bottom-0 start-0 h-full ps-3">
+              <ul className="list-none flex justify-start">
+                {tutorialData.map((item, index) => (
+                  <Indicator
+                    amountOfSteps={tutorialData.length}
+                    step={step}
+                    index={index}
+                    key={item.title}
+                  />
+                ))}
+              </ul>
+            </div>
+
+            <div className="absolute flex items-center end-0 bottom-0 h-full pe-3">
+              {step > 0 && <Button btnInfo={btnInfo[0]} />}
+              {step < tutorialData.length - 1 && (
+                <Button btnInfo={btnInfo[1]} />
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </>
