@@ -47,7 +47,7 @@ export const Card = ({
       <div className="max-w-sm rounded-3xl overflow-hidden h-5/6 relative shadow-lg">
         <div
           style={{backgroundImage: `url(${currentCardData.image})`}}
-          className={`w-full h-3/5 bg-${currentCardData.bgColor} bg-contain bg-no-repeat bg-center`}
+          className={`w-full h-3/5 bg-${currentCardData.bgColor} bg-contain bg-no-repeat bg-center duration-500`}
         >
         </div>
         <div className="h-2/5">
