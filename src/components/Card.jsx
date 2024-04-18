@@ -1,15 +1,15 @@
 import React from 'react';
 
-const Button = ({ chooseStep, value, disabled, btnColor }) => {
+const Button = ({ chooseStep, value, disabled, btnInfo }) => {
   return (
     <button
       className={
-        'transition border-solid border-gray-800 font-bold border py-3 m-1 px-5 rounded-full ' +
-        btnColor.bg +
+        'transition border-solid border-gray-500 font-bold border py-3 m-1 px-5 rounded-full ' +
+        btnInfo.bg +
         ' ' +
-        btnColor.color +
+        btnInfo.color +
         ' ' +
-        btnColor.hover
+        btnInfo.hover
       }
       onClick={chooseStep}
       type="button"
@@ -27,30 +27,31 @@ export const Card = ({
   prevStep,
   ...props
 }) => {
-  let disabled = [false, false];
-  let btnColor = [
+  let btnInfo = [
     {
+      disabled: false,
       bg: 'bg-white',
       color: 'text-black',
       hover: 'hover:bg-black hover:text-white',
     },
     {
+      disabled: false,
       bg: 'bg-black',
       color: 'text-white',
       hover: 'hover:bg-white hover:text-black',
     },
   ];
 
-  if (currentCardData.title == 'Dedica moltes hores') {
-    disabled[0] = true;
-    btnColor[0] = {
+  if (currentCardData.page === 1) {
+    btnInfo[0] = {
+      disabled: true,
       bg: 'bg-gray-300 border-gray-300',
       color: 'text-black',
     };
   }
-  if (currentCardData.title == 'Procura descansar') {
-    disabled[1] = true;
-    btnColor[1] = {
+  if (currentCardData.page === 3) {
+    btnInfo[1] = {
+      disabled: true,
       bg: 'bg-gray-300 border-gray-300',
       color: 'text-black',
     };
@@ -61,9 +62,9 @@ export const Card = ({
       <div className="max-w-sm bg-white rounded-3xl overflow-hidden h-5/6 relative">
         <div
           className={
-            'transition h-3/5 bg-[' +
+            'transition h-3/5 bg-' +
             currentCardData.bgColor +
-            '] m-0 flex items-center justify-center'
+            ' m-0 flex items-center justify-center'
           }
         >
           <img
@@ -77,15 +78,15 @@ export const Card = ({
           <Button
             chooseStep={prevStep}
             value={'<'}
-            disabled={disabled[0]}
-            btnColor={btnColor[0]}
+            btnInfo={btnInfo[0]}
+            disabled={btnInfo[0].disabled}
           ></Button>
 
           <Button
             chooseStep={nextStep}
             value={'>'}
-            disabled={disabled[1]}
-            btnColor={btnColor[1]}
+            btnInfo={btnInfo[1]}
+            disabled={btnInfo[1].disabled}
           ></Button>
         </div>
       </div>

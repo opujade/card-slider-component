@@ -9,23 +9,26 @@ function App() {
   const tutorialData = [
     {
       title: 'Dedica moltes hores',
+      page: 1,
       description:
         'Un mínim de 30 hores a la setmana. Si no en tens prou, hauràs de dedicar-li més hores. Al principi sembla impossible, però aniràs notant una millora ràpidament.',
-      bgColor: '#4da2a9',
+      bgColor: 'time',
       image: 'src/assets/time_managment.svg',
     },
     {
       title: 'Programa projectes propis',
+      page: 2,
       description:
         'Més val 10 hores treballant en projectes propis, que 10 hores mirant tutorials. La motivació i la implicació en el projecte ajudarà a accelerar el teu aprenentatge.',
-      bgColor: '#d3d4d9',
+      bgColor: 'programming',
       image: 'src/assets/programming.svg',
     },
     {
       title: 'Procura descansar',
+      page: 3,
       description:
         "Descansar bé i desconnectar són vitals. D'aquesta manera reduïràs l'estrés i l'ansietat. Milloraràs la concentració i consolidaràs el teu aprenentatge.",
-      bgColor: '#ffd167',
+      bgColor: 'meditation',
       image: 'src/assets/meditation.svg',
     },
   ];
