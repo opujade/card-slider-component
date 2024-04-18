@@ -40,10 +40,11 @@ function App() {
         stepFuncs={stepFuncs}
         step={step}
         tutorialData={tutorialData}
+        setStep={setStep}
       >
-        {tutorialData.map((data) => <img src={data.image} className={`bg-${tutorialData[step].bgColor} duration-500`} />)}
-        <h3 className='font-bold text-xl pt-8 px-5'>{tutorialData[step].title}</h3>
-        <p className='font-thin text-sm py-3 ps-5 pe-10'>{tutorialData[step].description}</p>
+        {tutorialData.map((data) => <img src={data.image} key={`img${data.title}`} className={`bg-${tutorialData[step].bgColor} duration-500`} />)}
+        {tutorialData.map((data) => <h3 key={`header ${data.title}`} className='font-bold text-xl pt-8 px-5 h-1/3 min-w-full'>{data.title}</h3>)}
+        {tutorialData.map((data) => <p key={`p ${data.title}`} className='font-thin text-sm py-3 ps-5 pe-10 min-w-full'>{data.description}</p>)}
       </Card>
     </div>
   );
