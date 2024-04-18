@@ -3,8 +3,8 @@ import { Card } from './Card';
 
 function App() {
   const stepFuncs = {
-    nextStep : () => setStep(step + 1),
-    prevStep : () => setStep(step - 1)
+    nextStep: () => setStep(step + 1),
+    prevStep: () => setStep(step - 1)
   }
 
   const tutorialData = [
@@ -34,17 +34,18 @@ function App() {
   const [step, setStep] = useState(0);
 
   return (
-      <div className='flex justify-center items-center h-screen font-sans'>
-        <Card
-          currentCardData={tutorialData[step]}
-          stepFuncs={stepFuncs}
-          step={step}
-          tutorialData={tutorialData}
-        >
-          <h3 className='font-bold text-xl pt-8 px-5'>{tutorialData[step].title}</h3>
-          <p className='font-thin text-sm py-3 ps-5 pe-10'>{tutorialData[step].description}</p>
-        </Card>
-      </div>
+    <div className='flex justify-center bg-slate-700 items-center h-screen font-sans'>
+      <Card
+        currentCardData={tutorialData[step]}
+        stepFuncs={stepFuncs}
+        step={step}
+        tutorialData={tutorialData}
+      >
+        {tutorialData.map((data) => <img src={data.image} className={`bg-${tutorialData[step].bgColor} duration-500`} />)}
+        <h3 className='font-bold text-xl pt-8 px-5'>{tutorialData[step].title}</h3>
+        <p className='font-thin text-sm py-3 ps-5 pe-10'>{tutorialData[step].description}</p>
+      </Card>
+    </div>
   );
 }
 
