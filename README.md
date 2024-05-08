@@ -1,8 +1,31 @@
-# React + Vite
+<h1 align=center>Card Slider🃏</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![React](https://img.shields.io/badge/React-18.2.0+-lightblue?style=for-the-badge&logo=react&logoColor=white&labelColor=101010)](https://react.dev)
 
-Currently, two official plugins are available:
+[![HTML](https://img.shields.io/badge/HTML-orange?style=for-the-badge&logo=html5&logoColor=white&labelColor=101010)](https://developer.mozilla.org/es/docs/Web/HTML)
+[![CSS](https://img.shields.io/badge/CSS-blue?style=for-the-badge&logo=css3&logoColor=white&labelColor=101010)](https://developer.mozilla.org/es/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-yellow?style=for-the-badge&logo=javascript&logoColor=white&labelColor=101010)](https://developer.mozilla.org/es/docs/Web/JavaScript)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Component developed with [React](https://react.dev/) and [Tailwind](https://tailwindcss.com/). Its a simple but beautiful design of a card component.
+> ##### The Card Slider was the 5th project for my Barcelona ITAcademy course.
+
+## Main Skills
+### React
+* Comunication between components.
+* State Hooks.
+* 
+### JavaScript
+* Understanding OOP concepts.
+### SOLID Principles
+### CSS
+* Using TailwindCSS to customize layout.
+* Responsive Design.
+
+<h2 align=center>Images</h2>
+![Captura de Pantalla 2024-05-08 a las 11 47 48](https://github.com/opujade/card-slider-component/assets/146122361/3617f45a-ae3a-4ed5-9a8c-102476c7bb15)
+
+## Description
+### The objective of this project is to create a slider of cards given an array of objects with each card information.
+1. Given an array of objects with the title, description, background color and an image URL, the app will print a card for each object.
+2. With a State Hook that controlls the step that the user currently is, the Card component which is rendered will be different.
+3. To create the slide effect, every card will be printed, but its overflow will be hidden. So every time the user selects a new step, the card will translate-x a 100% multiplied by the current step. This will create the slider effect.
