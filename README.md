@@ -22,7 +22,8 @@
 * Responsive Design.
 
 <h2 align=center>Images</h2>
-![Captura de Pantalla 2024-05-08 a las 11 47 48](https://github.com/opujade/card-slider-component/assets/146122361/3617f45a-ae3a-4ed5-9a8c-102476c7bb15)
+
+![Captura de Pantalla 2024-05-08 a las 11 55 52](https://github.com/opujade/card-slider-component/assets/146122361/5af73ad8-9a76-4dd1-aaf4-98f18c20d6a7)
 
 ## Description
 ### The objective of this project is to create a slider of cards given an array of objects with each card information.
